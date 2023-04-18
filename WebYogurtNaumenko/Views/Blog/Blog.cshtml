@@ -1,0 +1,47 @@
+﻿@model List<Freeeze.Models.tbBlog>
+@{
+    ViewBag.Title = "Blog";
+}
+
+<div class="row text-center header margin-bottom">
+    <h2 style="color:white;">BLOG</h2>
+</div>
+<div class="container">
+    <div class="row" style="padding-bottom:150px;">
+        <div class="col-lg-9" style="padding-right:20px;">
+            @foreach (var blog in Model)
+             {
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="~/Content/Img/@blog.Photo" />
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="pinktext">@blog.Name</h3>
+                        <span class="margin-bottom smalltext">By @blog.User on @blog.Date</span>
+                        <p class="blog-post">
+                            @blog.Blog
+                        </p>
+                        <span class="button">
+                            <a href="@Url.Action("SinglePost", "Blog",new { id = blog.idBlog })">READ MORE</a>
+                        </span>
+                    </div>
+                </div>
+                <hr>
+             }
+            <div class="text-center" style="padding-top:20px;">
+                <span class="button">@Html.ActionLink("LOAD MORE", "Product", "Blog")</span>
+            </div>
+        </div>
+        <div class="col-lg-3 text-center side-text">
+            <h3 class="pinktext margin-bottom" style="font-weight:bold">Recent Posts</h3>
+            <img src="~/Content/Img/@Model[0].Photo">
+            <h3 class="pinktext">@Model[0].Name</h3>
+            <span class="margin-bottom smalltext">By @Model[0].User on @Model[0].Date</span>
+            <p style="padding-bottom: 64px;">@Model[0].Blog</p>
+            <span class="button">
+                <a href="@Url.Action("SinglePost", "Blog",new { id = Model[0].idBlog })">READ MORE</a>
+            </span>
+        </div>
+    </div>
+</div>
+

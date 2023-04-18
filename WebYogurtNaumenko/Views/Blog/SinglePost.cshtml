@@ -1,0 +1,16 @@
+﻿@model Freeeze.Models.tbBlog
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="row text-center header margin-bottom">
+    <h2>SINGLE POST</h2>
+</div>
+<div class="container text-center">
+    <img src="~/Content/Img/@Model.Photo" />
+    <h3 class="pinktext">@Model.Name</h3>
+    <p class="margin-bottom">
+        @Model.Blog
+    </p>
+    <span class="button">@Html.ActionLink("BACK TO BLOG", "Blog", "Blog")</span>
+</div>

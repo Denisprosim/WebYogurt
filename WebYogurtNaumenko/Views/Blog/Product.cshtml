@@ -1,0 +1,49 @@
+﻿@model List<Freeeze.Models.tbKategorie>
+@{
+    ViewBag.Title = "Product";
+}
+<div class="row text-center header margin-bottom">
+    <h2>PRODUCT</h2>
+</div>
+
+<div class="container">
+
+    @foreach (var kat in Model)
+    {
+        <div class="row">
+            <div class="col-lg-3">
+                <h3 class="pinktext">
+                    @kat.Name
+                </h3>
+                <p>
+                    @kat.Blog
+                </p>
+            </div>
+            @if (kat.tbProducts.Count <= 3)
+            {
+                foreach (var product in kat.tbProducts.Take(3))
+                {
+                    <div class="col-lg-3 text-center">
+                        <img src="~/Content/Img/@product.Photo" style="border-radius:50%; height:160px; margin-top:80px" />
+                        <h3 class="pinktext">@product.Name</h3>
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (var product in kat.tbProducts.Take(2))
+                {
+                    <div class="col-lg-3 text-center">
+                        <img src="~/Content/Img/@product.Photo" style="border-radius:50%; height:160px; margin-top:80px" />
+                        <h3 class="pinktext">@product.Name</h3>
+                    </div>
+                }
+                <div class="col-lg-3">
+                    <span class="button" style="margin-top:150px">
+                        <a href="@Url.Action("MoreProducts", "Blog",new { id = kat.idKategorie })">READ MORE</a>
+                    </span>
+                </div>
+            }
+        </div>
+    }
+</div>

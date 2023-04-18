@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top nohover margin-bottom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="#"><img src="~/Content/Img/logo.png" /></a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse nohover nav-menu">
+                <ul class="nav navbar-nav navbar-brand nohover nav-menu" style="float:right">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li style="padding-left: 20px">@Html.ActionLink("About", "About", "Home")</li>
+                    <li style="padding-left: 20px">@Html.ActionLink("Blog", "Blog", "Blog")</li>
+                    <li style="padding-left: 20px">@Html.ActionLink("Product", "Product", "Blog")</li>
+                    <li style="padding-left: 20px">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer>
+        <div class="row myfooter">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center footer">
+                <img src="~/Content/Img/Group 2.png" />
+                <img src="~/Content/Img/twitter.png" />
+                <img src="~/Content/Img/google.png" />
+                <img src="~/Content/Img/pintrest.png" />
+                <p style="color:white">2023 Freeze All rights reserved</p>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
